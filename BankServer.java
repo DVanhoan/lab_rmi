@@ -4,10 +4,12 @@ import java.rmi.registry.Registry;
 public class BankServer {
     public static void main(String[] args) {
         try {
-            int port = Integer.parseInt(args[0]); // Ví dụ: 2020
-            String dbFile = args[1]; // Ví dụ: bank1.db
-            String peerHost = args.length > 2 ? args[2] : null; // host server kia
-            int peerPort = args.length > 3 ? Integer.parseInt(args[3]) : 0;
+            System.setProperty("java.rmi.server.hostname", "192.168.1.6");
+
+            int port = 3000;
+            String dbFile = "bank.db";
+            String peerHost = "192.168.160.129";
+            int peerPort = 2021;
 
             BankImpl impl = new BankImpl(dbFile);
             Registry registry = LocateRegistry.createRegistry(port);

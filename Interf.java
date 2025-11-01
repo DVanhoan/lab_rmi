@@ -12,5 +12,9 @@ public interface Interf extends Remote {
 
     void withdraw(String username, double amount) throws RemoteException;
 
+    boolean transfer(String fromUser, String toUser, double amount) throws RemoteException;
+
+    boolean changePassword(String username, String newPass) throws RemoteException;
+
     void syncUpdate(String username, double newBalance, boolean loginState) throws RemoteException;
 }
